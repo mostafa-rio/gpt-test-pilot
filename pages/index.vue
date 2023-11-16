@@ -1,7 +1,6 @@
 <template>
-  <UContainer class="my-5">
+  <div class="custom-container">
     <Header class="mb-3" />
-
     <UModal :prevent-close="true" v-model="isLoadingModalOpen">
       <div class="p-4 text-center">
         GPT is generating test. <br />
@@ -9,10 +8,20 @@
       </div>
     </UModal>
 
-    <div class="flex relative flex-col lg:flex-row gap-3">
+    <div id="main-section" class="flex relative flex-col lg:flex-row gap-3">
       <UCard class="w-full lg:w-1/2">
         <template v-slot:header> Your test configurations</template>
-        <UTextarea :rows="20" v-model="codeToTest" />
+
+        <div class="mt-3">
+          <label class="text-xs" for="codeToTest">Your Code</label>
+          <UTextarea
+            id="CodeToTest"
+            :rows="20"
+            class="text-slate-400"
+            v-model="codeToTest"
+            placeholder="Past Your Code Here"
+          />
+        </div>
 
         <div class="mt-3">
           <label class="text-xs" for="type-of-test"> Select a test </label>
@@ -28,7 +37,7 @@
             Technologies to use in test ( separated by commas )
           </label>
           <UTextarea
-            :rows="4"
+            :rows="1"
             v-model="technologies"
             id="technologies"
             placeholder="Jest, Mocha"
@@ -49,7 +58,7 @@
             >OpenAI API Key ( Wont be saved )
           </label>
           <UTextarea
-            :rows="2"
+            :rows="1"
             id="apiKey"
             v-model="apiKey"
             placeholder="OPENAI_API_KEY"
@@ -71,7 +80,7 @@
         />
       </UCard>
     </div>
-  </UContainer>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -116,4 +125,9 @@ const generateTest = async () => {
 };
 </script>
 
-<style scoped></style>
+<style>
+.custom-container {
+  max-width: 1920px;
+  padding: 1rem;
+}
+</style>
