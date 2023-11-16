@@ -1,6 +1,8 @@
 ## GPT Test Pilot  🛫
 
-An initiative way to write more tests with the help of GPT Model
+An initiative way to write more tests with the help of GPT Model.
+
+You can try using [Test Pilot](https://gpt-test-pilot.vercel.app/) now.
 
 ![preview](https://github.com/mostafa-rio/gpt-test-pilot/assets/32630862/4f02580e-5b44-4a81-abb7-7cb93e11aa8b)
 
