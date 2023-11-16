@@ -1,4 +1,5 @@
 import { GenerateTestParams, TypeOfTest } from "~/types";
+import OpenAI from "openai";
 
 export default defineEventHandler(async (e) => {
   try {

@@ -1,6 +1,7 @@
 <template>
   <div class="custom-container">
     <Header class="mb-3" />
+    <UNotifications />
     <UModal :prevent-close="true" v-model="isLoadingModalOpen">
       <div class="p-4 text-center">
         GPT is generating test. <br />
@@ -86,7 +87,8 @@
 <script setup lang="ts">
 import type { TypeOfTest, GenerateTestParams } from "@/types";
 import VCodeBlock from "@wdns/vue-code-block";
-const typeOfTestOptions: TypeOfTest[] = ["Endt to end", "Integration", "Unit"];
+const toast = useToast();
+const typeOfTestOptions: TypeOfTest[] = ["End to end", "Integration", "Unit"];
 const typeOfTest = ref<TypeOfTest>("Unit");
 const isLoadingModalOpen = ref(false);
 const technologies = ref("");
@@ -116,6 +118,10 @@ const generateTest = async () => {
     isLoadingModalOpen.value = false;
   } catch (err) {
     console.log(err);
+    toast.add({
+      title:
+        "Failed generating tests. If you think its a bug, open an issue on github.",
+    });
     isLoadingModalOpen.value = false;
   }
 };

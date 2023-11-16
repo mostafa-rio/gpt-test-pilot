@@ -1,4 +1,4 @@
-export type TypeOfTest = "Unit" | "Endt to end" | "Integration";
+export type TypeOfTest = "Unit" | "End to end" | "Integration";
 export type GenerateTestParams = {
   apiKey: string;
   code: string;
