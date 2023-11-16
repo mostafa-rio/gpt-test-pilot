@@ -9,7 +9,6 @@ export default defineEventHandler(async (e) => {
       type,
       technologies,
     } = await readBody<GenerateTestParams>(e);
-    console.log(makeSystemPrompt(type, technologies, instructions));
     const requestBody: CompletionRequest = {
       model: "gpt-3.5-turbo-16k",
       max_tokens: 4097,

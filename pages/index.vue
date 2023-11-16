@@ -76,7 +76,7 @@
           :code="code"
           highlightjs
           lang="javascript"
-          :theme="isDark ? 'ir-black' : 'grayscale'"
+          theme="neon-bunny"
         />
       </UCard>
     </div>
@@ -86,12 +86,8 @@
 <script setup lang="ts">
 import type { TypeOfTest, GenerateTestParams } from "@/types";
 import VCodeBlock from "@wdns/vue-code-block";
-const currentTheme = useColorMode();
 const typeOfTestOptions: TypeOfTest[] = ["Endt to end", "Integration", "Unit"];
 const typeOfTest = ref<TypeOfTest>("Unit");
-const isDark = computed(() => {
-  return currentTheme.value === "dark";
-});
 const isLoadingModalOpen = ref(false);
 const technologies = ref("");
 const codeToTest = ref("");
